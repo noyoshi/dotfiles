@@ -13,11 +13,16 @@ Run `apt-installs.sh` with sudo to install these
 - `feh` background setter 
 - `rofi` dmenu replacement 
 - `neofetch` ricing tool 
+- `polybar` status bar
+
+These come from non-standard repos 
+- `fonts-manager` font managing GUI tool
 
 #### pip #### 
 - `pywal` automatic theme generator 
 
 
 #### source #### 
-- `i3-gaps` (github)[https://github.com/Airblader/i3]
+- `i3-gaps` [github](https://github.com/Airblader/i3)
+- `cava` [github](https://github.com/karlstav/cava)
 
