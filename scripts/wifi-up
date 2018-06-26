@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+# Using nmcli to connect to wifi via command line
+nmcli dev wifi connect $1 password $2
