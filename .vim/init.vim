@@ -4,7 +4,7 @@
 " ======================= Plugins with Vundle ==========================
 set nocompatible
 filetype on
-set runtimepath+=~/.vim/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 set runtimepath+=/usr/local/opt/fzf
 call vundle#begin()
 

@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/silver/.oh-my-zsh"
+  export ZSH="/Users/silver/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -94,24 +94,55 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #### Exports ####
-export WAL_WAL=`cat ~/.cache/wal/wal`
+export PATH="$PATH:/usr/local/bin:/bin"
 export PATH="$PATH:$HOME/scripts"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/Users/silver/Library/Python/3.7/bin"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export EDITOR="nvim"
+export NICE_PATH="/Users/silver/Documents/nice/"
 
 #### Commands ####
-wal -Rne &> /dev/null
-#clear
-neofetch --w3m `$WAL_WAL` --size 350 --xoffset 20 --yoffset 20
 # Script that aliases and sets enviornmental secrets
-startup
+# neofetch
+
+#### Env Setup ####
+eval "$(pyenv init -)"
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+
+#### SECRETS ####
+source ~/.secrets
 
 #### Aliases ####
-alias lock="sh ~/lock.sh &> /dev/null"
 alias v="vim"
 alias z="zsh"
-alias start-dual="xrandr --output HDMI-1-1 --left-of eDP-1-1 --auto"
-alias stop-dual="xrandr --output HDMI-1-1 --off --auto"
+alias vim="nvim"
+alias nrun="npm run"
+alias k8="kubectl"
+
+alias fowl="git push --force-with-lease"
+alias canada="git commit --amend --no-edit"
+alias bat="bat --paging never"
+
+alias update_zsh="vim ~/.zshrc"
+alias update_vim="vim ~/.vimrc"
+
+alias digums="ssh nyoshida@student04.cse.nd.edu"
+
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+alias weather='curl http://wttr.in/South\ Bend'
+## Nifty CLI Alternatives
+# alias ping="prettyping"
 
 #### Cleanup ####
-echo "Message!\n"
-cat ~/README
-echo
+cat ~/.message
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/silver/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/silver/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/silver/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/silver/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
