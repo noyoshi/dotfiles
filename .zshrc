@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="noah"
+ZSH_THEME="hack"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,6 +60,11 @@ ZSH_THEME="noah"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  osx
+  copyfile
+  brew
+  web-search
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,7 +111,7 @@ export NICE_PATH="/Users/silver/Documents/nice/"
 
 #### Commands ####
 # Script that aliases and sets enviornmental secrets
-# neofetch
+neofetch --ascii /Users/silver/.ascii_art
 
 #### Env Setup ####
 eval "$(pyenv init -)"
@@ -130,14 +135,18 @@ alias bat="bat --paging never"
 alias update_zsh="vim ~/.zshrc"
 alias update_vim="vim ~/.vimrc"
 
-alias digums="ssh nyoshida@student04.cse.nd.edu"
-
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
-alias weather='curl http://wttr.in/South\ Bend'
+alias weather='curl http://wttr.in/'
 ## Nifty CLI Alternatives
 # alias ping="prettyping"
 
+#### Linux Specific ####
+# alias start-dual="xrandr --output HDMI-1-1 --left-of eDP-1-1 --auto"
+# alias stop-dual="xrandr --output HDMI-1-1 --off --auto"
+# alias lock="sh ~/lock.sh &> /dev/null"
+
+# feh --bg-scale $WALLPAPER
 #### Cleanup ####
 cat ~/.message
 

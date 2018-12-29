@@ -26,4 +26,7 @@ These are my dotfiles for ricing/configuring my dev env. Use at your own risk.
   ligatures enabled, it renders `->` as a connected arrow and `!=` as `=/=`
   (connected, of course), along with other neat symbols. Not sure how to package
   this for any setup so you'll have to go find it and download it manually.
+- Please note that Fira Code is NOT supported on most of the Linux Terminals
+  except Hyper.js. This is because there is a bug with `libvte` which is the
+  GNOME terminal utility?
 
