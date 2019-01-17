@@ -72,6 +72,9 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 " Airline themes
 " Plugin 'vim-airline/vim-airline-themes'
 
+" Support for nim lang
+Plugin 'baabelfish/nvim-nim'
+
 " +++++++++++ Color schemes ++++++++++++
 
 Plugin 'andreypopp/vim-colors-plain'
@@ -112,7 +115,7 @@ filetype plugin indent on
 " ====================== General ====================================
 syntax on
 set background=dark
-colorscheme gruvbox 
+colorscheme gruvbox
 
 set termguicolors " this enables italics~
 set showmatch
@@ -140,12 +143,12 @@ set foldmethod=indent
 set foldlevel=99
 
 " Don't have tildes in empty lines
-" Make sure to have a whitespace after the backslash, only works for neovim 
+" Make sure to have a whitespace after the backslash, only works for neovim
 set fillchars=eob:\ 
 
 " ========================== Plugin Adjustments ======================
 " Markdown preview
-" allows github-flavored markdown (needs grip installed) 
+" allows github-flavored markdown (needs grip installed)
 let vim_markdown_preview_github=1
 " Default hotkey is <C-p>, change that to something else
 let vim_markdown_preview_hotkey='<C-m>'
@@ -204,7 +207,7 @@ let g:airline_powerline_fonts = 1
 " Fugitive
 set statusline=%{fugitive#statusline()}
 " Gets current dir
-set statusline+=\ %{getcwd()} 
+set statusline+=\ %{getcwd()}
 " Left floated time
 set statusline+=%=%{strftime('%a\ %b\ %d\ %H:%M')}
 
@@ -256,5 +259,5 @@ let &t_ZR="\e[23m"
 highlight Comment gui=italic
 
 " Non - vim settings
-" iTerm2 - I have Command + [ or ] to map to 
+" iTerm2 - I have Command + [ or ] to map to
 " :tabn or :tabp to cycle through vim tabs

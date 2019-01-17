@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="hack"
+ZSH_THEME="minimal"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -105,6 +105,7 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/Users/silver/Library/Python/3.7/bin"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/Users/silver/.nimble/bin:$PATH"
 
 export EDITOR="nvim"
 export NICE_PATH="/Users/silver/Documents/nice/"
@@ -138,9 +139,20 @@ alias update_vim="vim ~/.vimrc"
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
 alias weather='curl http://wttr.in/'
+# nim compile --run
+# alias nimrun='nim c -d:release -r'
+alias nimrun='nim c -r'
 ## Nifty CLI Alternatives
 # alias ping="prettyping"
 
+# youtube-dl settings
+download() {
+  youtube-dl --add-metadata -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --embed-thumbnail $1 -o "%(title)s.%(ext)s"
+}
+
+download_audio() {
+  youtube-dl --add-metadata --embed-thumbnail --extract-audio --audio-format mp3 $1 -o "%(title)s.%(ext)s"
+}
 #### Linux Specific ####
 # alias start-dual="xrandr --output HDMI-1-1 --left-of eDP-1-1 --auto"
 # alias stop-dual="xrandr --output HDMI-1-1 --off --auto"
