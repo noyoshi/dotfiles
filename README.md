@@ -16,6 +16,14 @@ These are my dotfiles for ricing/configuring my dev env. Use at your own risk.
 - I had to use iTerm to remap some keybindings in vim to toggle between open
   tabs - look at the bottom of `.vimrc` for more information.
 
+- To speed up the autohide and the open of the OS X dock, use 
+
+`defaults write com.apple.dock autohide-time-modifier -int 0`
+and 
+`killall Dock` 
+
+to change the autohide modifier.
+
 ## Vim 
 - I am not tracking my `bundle/` folder, as that contains all the modules except
   Vundle that are downloaded using Vundle. You might need to manually create a
@@ -29,4 +37,13 @@ These are my dotfiles for ricing/configuring my dev env. Use at your own risk.
 - Please note that Fira Code is NOT supported on most of the Linux Terminals
   except Hyper.js. This is because there is a bug with `libvte` which is the
   GNOME terminal utility?
+
+## Color Schemes
+Vim: 
+- Gruvbox
+
+iTerm2:
+- Nord
+- Ayu
+- Tomorrow Night
 
