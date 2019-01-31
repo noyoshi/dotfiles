@@ -112,6 +112,7 @@ export NICE_PATH="/Users/silver/Documents/nice/"
 
 #### Commands ####
 # Script that aliases and sets enviornmental secrets
+# neofetch --ascii /Users/silver/.ascii_art
 neofetch --ascii /Users/silver/.ascii_art
 
 #### Env Setup ####
@@ -123,11 +124,13 @@ eval "$(rbenv init -)"
 source ~/.secrets
 
 #### Aliases ####
-alias v="vim"
-alias z="zsh"
 alias vim="nvim"
+alias v="/usr/bin/vim"
+alias z="zsh"
 alias nrun="npm run"
 alias k8="kubectl"
+
+alias tag="/usr/local/bin/ctags -R -f ./.tags ."
 
 alias fowl="git push --force-with-lease"
 alias canada="git commit --amend --no-edit"
@@ -144,6 +147,8 @@ alias weather='curl http://wttr.in/'
 alias nimrun='nim c -r'
 ## Nifty CLI Alternatives
 # alias ping="prettyping"
+#
+alias pingstat='ping google.com  | unbuffer -p sed s/time=//g | unbuffer -p awk '"'"'{print $7}'"'"'  | stag'
 
 # youtube-dl settings
 download() {

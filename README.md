@@ -28,6 +28,7 @@ to change the autohide modifier.
 - I am not tracking my `bundle/` folder, as that contains all the modules except
   Vundle that are downloaded using Vundle. You might need to manually create a
   `.vim/bundle` folder before downloading stuff with Vundle. 
+- Use `ctags` in conjunction with vim to index projects
 
 ## Fonts
 - I have taken to using `Fira Code` as my default font for OSX. In iTerm with
@@ -46,4 +47,8 @@ iTerm2:
 - Nord
 - Ayu
 - Tomorrow Night
+
+## Random Scripts
+- stag
+- tldr
 
