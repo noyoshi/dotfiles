@@ -104,18 +104,25 @@
   set background=dark
 
   colorscheme gruvbox 
-
+  
+  " Reads file updates from outside vim
+  set autoread 
   set termguicolors "to help enable italics
+
+  " Highlights matching parens
   set showmatch
   set number
   set showmode
+
+  " Changes tabs -> 2 spaces
   set expandtab
   set softtabstop=2
   set shiftwidth=2
-  set textwidth=80
-  set autoindent
-  set smartindent
   set tabstop=2
+  set autoindent
+
+  set smartindent
+  set textwidth=80
   set fileformat=unix
   set mouse=a
   set wrap
@@ -141,6 +148,8 @@
   vnoremap t zf
   set foldmethod=indent
   set foldlevel=99
+  :command! Fold set foldlevel=0
+  :command! UnFold set foldlevel=99
 
   " Set the custom ctags file as ./.tags by default (where my zsh alias sends tags
   " to!)
@@ -196,12 +205,14 @@
   " Change the color of the characters
   " Add is the green from gruvbox and delete is the red from gruvbox
   " Change is white (default)
-  hi GitGutterAdd ctermfg=142 guifg=#b8bb26
+  hi GitGutterAdd ctermfg=108 guifg=#8ec07c
+  hi GitGutterChange ctermfg=208 guifg=#fabd2f
   hi GitGutterDelete ctermfg=100 guifg=#fb4934
 
-  let g:gitgutter_sign_added = '新'
-  let g:gitgutter_sign_modified = '変'
-  let g:gitgutter_sign_removed = '無'
+  " Make sure these unicode characters are good
+  let g:gitgutter_sign_added = '┃'
+  let g:gitgutter_sign_modified = '┃'
+  let g:gitgutter_sign_removed = '┃'
 
   " === Gruvbox === 
   let g:gruvbox_italic=1
@@ -238,7 +249,7 @@
   " Fugitive
   set statusline=%{fugitive#statusline()}
   " Gets current file 
-  set statusline+=[\ %F]
+  set statusline+=[\%F]
   " Left floated time
   set statusline+=%=[%{strftime('%a\ %b\ %d\ %H:%M')}]\ \ \ \ [%l\ \ %p%%]
 
