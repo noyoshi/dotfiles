@@ -76,6 +76,9 @@
   " Support for nim lang
   Plugin 'baabelfish/nvim-nim'
 
+  " fff - cuz Dylan Araps writes nice software
+  Plugin 'dylanaraps/fff.vim'
+
 " ======== Color Schemes ========= 
 
   Plugin 'andreypopp/vim-colors-plain'
@@ -225,6 +228,10 @@
 
   " === YCM ===
   " let g:ycm_python_binary_path = 'python'
+    
+  " === fff ===
+  " Open fff on press of 'f'
+  nnoremap f :F<CR>
 
   " === EasyMotion ===
   let mapleader=" "
@@ -275,9 +282,13 @@
     \ endif
   augroup END
 
-  " 2 Spaces for html - NOT WORKING?
+  " Manually set the space width for different file types
   autocmd FileType html set shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType css  set shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType js   set shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType c    set shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType cpp  set shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType py   set shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType md   set spelllang=en_us
 
   " Org filetype detection is broken, this is a work around

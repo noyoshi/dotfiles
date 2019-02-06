@@ -141,7 +141,7 @@ alias update_vim="vim ~/.vimrc"
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
-alias weather='curl http://wttr.in/'
+
 # nim compile --run
 # alias nimrun='nim c -d:release -r'
 alias nimrun='nim c -r'
@@ -150,6 +150,7 @@ alias nimrun='nim c -r'
 #
 alias pingstat='ping google.com  | unbuffer -p sed s/time=//g | unbuffer -p awk '"'"'{print $7}'"'"'  | stag'
 
+##### Functions #####
 # youtube-dl settings
 download() {
   youtube-dl --add-metadata -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --embed-thumbnail $1 -o "%(title)s.%(ext)s"
@@ -158,6 +159,11 @@ download() {
 download_audio() {
   youtube-dl --add-metadata --embed-thumbnail --extract-audio --audio-format mp3 $1 -o "%(title)s.%(ext)s"
 }
+
+weather() {
+  curl http://wttr.in/$1
+}
+
 #### Linux Specific ####
 # alias start-dual="xrandr --output HDMI-1-1 --left-of eDP-1-1 --auto"
 # alias stop-dual="xrandr --output HDMI-1-1 --off --auto"
@@ -172,3 +178,6 @@ if [ -f '/Users/silver/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/silver/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/silver/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval $(thefuck --alias)
+alias fml="fuck"
