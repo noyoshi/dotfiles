@@ -77,7 +77,11 @@
   Plugin 'baabelfish/nvim-nim'
 
   " fff - cuz Dylan Araps writes nice software
-  Plugin 'dylanaraps/fff.vim'
+  " Plugin 'dylanaraps/fff.vim'
+  " Right now using fuzzyfind, but could use this as an alternative...
+
+  " Multi Line Cursors
+  Plugin 'terryma/vim-multiple-cursors'
 
 " ======== Color Schemes ========= 
 
@@ -193,6 +197,8 @@
   " Change the error sign
   let g:ale_sign_error = '❗️'
   let g:ale_sign_warning = '❔'
+
+  :command! Nowarn let g:ale_sign_warning=''
   " let g:ale_sign_warning = '--'
   " let g:ale_sign_error = '>>'
   " Do not highlight the side column or the symbols
@@ -231,10 +237,10 @@
     
   " === fff ===
   " Open fff on press of 'f'
-  nnoremap f :F<CR>
+  " nnoremap f :F<CR>
 
   " === EasyMotion ===
-  let mapleader=" "
+  let mapleader=' '
   map <Leader> <Plug>(easymotion-prefix)
 
   " === Nerd Tree === 
@@ -262,7 +268,11 @@
 
   " === FZF === 
   " Remap ctrl-p to fzf
-  nnoremap <silent> <C-p> :FZF<CR>
+  nnoremap <silent> <C-F> :FZF<CR>
+
+  " === Multi Line ===
+  let g:multi_cursor_start_word_key      = '<C-l>'
+  let g:multi_cursor_next_key            = '<C-l>'
 
   " ============================== Custom Commands ===============================
   "Remove all trailing whitespace with command strip 
@@ -300,5 +310,5 @@
 
   " Non - vim settings
   " iTerm2 - I have Command + [ or ] to map to
-  " :tabn or :tabp to cycle through vim tabs
+  " :tabn\n or :tabp\n to cycle through vim tabs
 
