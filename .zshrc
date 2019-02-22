@@ -130,6 +130,9 @@ alias z="zsh"
 alias nrun="npm run"
 alias k8="kubectl"
 
+# This is in oh-my-zsh by default, but its so useful I want to document it here
+alias d="dirs -v | head -10"
+
 alias tag="/usr/local/bin/ctags -R -f ./.tags ."
 
 alias fowl="git push --force-with-lease"

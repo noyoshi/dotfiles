@@ -16,7 +16,37 @@
   Plugin 'gmarik/Vundle.vim'
 
   " Tab autocompletion
-  Plugin 'ervandew/supertab'
+  " Plugin 'ervandew/supertab'
+  Plugin 'maralla/completor.vim'
+
+  " Use TAB to complete when typing words, else inserts TABs as usual.  Uses
+  " dictionary, source files, and completor to find matching words to complete.
+
+  " Note: usual completion is on <C-n> but more trouble to press all the time.
+  " Never type the same word twice and maybe learn a new spellings!
+  " Use the Linux dictionary when spelling is in doubt.
+  function! Tab_Or_Complete() abort
+    " If completor is already open the `tab` cycles through suggested completions.
+    if pumvisible()
+      return "\<C-N>"
+    " If completor is not open and we are in the middle of typing a word then
+    " `tab` opens completor menu.
+    elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+      return "\<C-R>=completor#do('complete')\<CR>"
+    else
+      " If we aren't typing a word and we press `tab` simply do the normal `tab`
+      " action.
+      return "\<Tab>"
+    endif
+  endfunction
+
+  " Use `tab` key to select completions.  Default is arrow keys.
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  " Use tab to trigger auto completion.  Default suggests completions as you type.
+  let g:completor_auto_trigger = 0
+  inoremap <expr> <Tab> Tab_Or_Complete()
 
   " Another Syntax / Linting tool
   Plugin 'w0rp/ale'
@@ -82,6 +112,10 @@
 
   " Multi Line Cursors
   Plugin 'terryma/vim-multiple-cursors'
+
+  " Coffee script support
+  Plugin 'kchmck/vim-coffee-script'
+
 
 " ======== Color Schemes ========= 
 
@@ -160,7 +194,8 @@
 
   " Set the custom ctags file as ./.tags by default (where my zsh alias sends tags
   " to!)
-  set tags=./.tags,tags;
+  " set tags=./tags;,tags;
+  set tags=./.tags;,tags;
  
   " Press F3 to toggle paste mode
   set pastetoggle=<F3>
@@ -231,6 +266,7 @@
   " === Other COlor Schemes === 
   let g:monokai_term_italic = 1
   let g:srcery_italic = 1
+  
 
   " === YCM ===
   " let g:ycm_python_binary_path = 'python'
@@ -265,7 +301,7 @@
   set statusline+=[\%F]
   " Left floated time
   set statusline+=%=[%{strftime('%a\ %b\ %d\ %H:%M')}]\ \ \ \ [%l\ \ %p%%]
-
+  
   " === FZF === 
   " Remap ctrl-p to fzf
   nnoremap <silent> <C-F> :FZF<CR>
